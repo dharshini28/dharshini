@@ -1,9 +1,12 @@
 package com.codinginflow.smartalarm;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -26,7 +29,7 @@ public class Level1 extends Activity{
     static TextView textView;
     RadioButton rda, rdb, rdc, rdd;
     Button butNext;
-    MediaPlayer mp;
+    MediaPlayer mp1,mp2,mp3,mp4,mp5,mp6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +40,20 @@ public class Level1 extends Activity{
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
                 | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
                 | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
-        mp=MediaPlayer.create(this, R.raw.richard_dawkins_1);
-        mp.start();
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
+        final int n = prefs.getInt("MID",0);
+        mp1=MediaPlayer.create(this, R.raw.beautiful_morning_alarm_ringtone);
+        mp2=MediaPlayer.create(this, R.raw.like_the_devil);
+        mp3=MediaPlayer.create(this, R.raw.loneliness);
+        mp4=MediaPlayer.create(this, R.raw.cuckoo_clock);
+        mp5=MediaPlayer.create(this, R.raw.jump_start);
+        mp6=MediaPlayer.create(this, R.raw.wakeup);
+        if(n==1){mp1.start();}
+        if(n==2){mp2.start();}
+        if(n==3){mp3.start();}
+        if(n==4){mp4.start();}
+        if(n==5){mp5.start();}
+        if(n==6){mp6.start();}
         DatabaseCreate db = new DatabaseCreate(this);
         quesList = db.getAllQuestions();
         currentQ = quesList.get(qid);
@@ -57,7 +72,12 @@ public class Level1 extends Activity{
                 RadioButton answer = (RadioButton) findViewById(grp.getCheckedRadioButtonId());
                 try {
                     if (currentQ.getANSWER().equals(answer.getText())) {
-                        mp.stop();
+                        if(n==1){mp1.stop();}
+                        if(n==2){mp2.stop();}
+                        if(n==3){mp3.stop();}
+                        if(n==4){mp4.stop();}
+                        if(n==5){mp5.stop();}
+                        if(n==6){mp6.stop();}
                         return;
                     }
 

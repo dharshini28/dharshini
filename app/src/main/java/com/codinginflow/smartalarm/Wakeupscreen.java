@@ -8,10 +8,12 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
@@ -38,7 +40,8 @@ public class Wakeupscreen extends Service {
         {
             String CHANNEL_ID = "my_service";
             String CHANNEL_NAME = "My Background Service";
-
+            SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
+            final int n = prefs.getInt("m",1);
             NotificationChannel channel = null;
             if( android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O ) {
                 channel = new NotificationChannel(CHANNEL_ID,
@@ -82,8 +85,7 @@ public class Wakeupscreen extends Service {
 
 
             if( !this.isRunning && startId == 1 ) {
-                Intent i;
-                i = new Intent(Wakeupscreen.this,Level1.class);
+               Intent i = new Intent(Wakeupscreen.this,Level1.class);
                 startActivity(i);
                 mNM.notify(0,mNotify);
 

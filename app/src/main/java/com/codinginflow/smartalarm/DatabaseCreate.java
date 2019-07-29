@@ -1,5 +1,6 @@
 package com.codinginflow.smartalarm;
 
+import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -19,10 +20,12 @@ public class DatabaseCreate extends SQLiteOpenHelper {
         private static final String OPTIOND = "optiond" ;
         private static final String ANSWER = "answer" ;
         SQLiteDatabase dbase;
-        public DatabaseCreate(Context context) {
+        public DatabaseCreate(Level1 context) {
             super(context, DATABASE_NAME, null, 1);
         }
-        @Override
+
+
+    @Override
         public void onCreate(SQLiteDatabase db) {
             dbase=db;
             db.execSQL("create table if not exists Quest(QID int primary key, Question varchar(500) not null, optiona varchar(50) not null, optionb varchar(50) not null, optionc varchar(50) not null, optiond varchar(50) not null, answer varchar(50) not null)");

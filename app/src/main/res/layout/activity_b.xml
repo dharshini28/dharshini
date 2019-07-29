@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="10"
-    android:background="@color/black"
-    tools:context="com.codinginflow.smartalarm.MainActivity">
+    android:background="@color/colorPrimary"
+    tools:context="com.codinginflow.smartalarm.MainActivity"
+    android:orientation="vertical">
 
     <Toolbar
         android:id="@+id/toolbar"
@@ -16,11 +16,20 @@
         tools:ignore="NewApi">
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SMART ALARM"
-            android:textColor="@color/white"
-            />
+            android:text="ALARM"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/pink"
+            android:layout_marginLeft="100dp"
+            android:text="STOPWATCH"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/b1"
@@ -30,14 +39,18 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/ic_add"
-            android:backgroundTint="@color/white" />
+            android:backgroundTint="@color/white"
+            />
 
     </Toolbar>
 
     <ListView
         android:id="@+id/l1"
+        android:cacheColorHint="@color/white"
+        android:outlineAmbientShadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="100"
+        android:layout_weight="1"
         />
 </LinearLayout>
