@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
-            android:allowBackup="true"
+            android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher"
@@ -29,7 +29,7 @@
             <service android:name=".Wakeupscreen"
                 android:enabled="true">
             </service>
-        <activity android:name=".Screen" />
+
         <activity android:name=".Level1" />
         <activity android:name=".Stopwatch" />
     </application>
