@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:theme="@style/ActionBar"
+        tools:ignore="MissingConstraints,NewApi">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STOPWATCH"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/pink"
+        android:layout_marginLeft="100dp"
+        android:text="ALARM"
+        android:textColor="@color/white" />
+
+    </Toolbar>
+
+    <Chronometer
+        android:id="@+id/chronometerExample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="60dp"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+   />
+
+    <Button
+        android:id="@+id/buttonStartChronometer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/start"
+       android:layout_below="@id/chronometerExample"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="150dp"/>
+
+    <Button
+        android:id="@+id/buttonStopChronometer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/stop"
+        android:layout_below="@id/chronometerExample"
+        android:layout_marginTop="150dp"
+        android:layout_toRightOf="@id/buttonStartChronometer"
+        android:layout_marginLeft="50dp"/>
+
+    <Button
+        android:id="@+id/buttonRestartChronometer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/restart"
+         android:layout_below="@id/chronometerExample"
+        android:layout_marginTop="150dp"
+        android:layout_toRightOf="@id/buttonStopChronometer"
+        android:layout_marginLeft="50dp"/>
+
+    <Button
+        android:id="@+id/buttonClearChronometerFormat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Count Down Timer"
+        android:layout_below="@id/buttonRestartChronometer"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
